@@ -1,6 +1,6 @@
 package main.kotlin.days
 
-class Day01() : Day(1) {
+class Day01 : Day(1) {
 	override fun part1(input: List<String>): String {
 		val calibrationValues = mutableListOf<Int>()
 		val allowedChars = Calibration.numbers.values.map { n -> n.toString() }
