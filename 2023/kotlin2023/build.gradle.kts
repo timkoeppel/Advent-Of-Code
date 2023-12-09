@@ -3,8 +3,12 @@ plugins {
 }
 
 sourceSets {
-	main {
-		kotlin.srcDir("src")
+	main{
+		kotlin.srcDir("src/main")
+	}
+
+	test {
+		kotlin.srcDir("src/test")
 	}
 }
 
@@ -20,5 +24,4 @@ tasks {
 
 dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
-	testImplementation("org.jetbrains.kotlin:kotlin-test:1.8.10")
 }

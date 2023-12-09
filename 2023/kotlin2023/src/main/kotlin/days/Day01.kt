@@ -1,4 +1,6 @@
-package main.kotlin.days
+package days
+
+import main.kotlin.days.Day
 
 class Day01 : Day(1) {
 	override fun part1(input: List<String>): String {

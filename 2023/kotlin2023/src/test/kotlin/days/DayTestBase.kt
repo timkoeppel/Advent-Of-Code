@@ -30,7 +30,7 @@ abstract class DayTestBase(private val day: Day, private val solution1: String, 
 	}
 
 	private fun getDefaultInput(): List<String> {
-		return readInput(this.javaClass.simpleName)
+		return readInput(day.javaClass.simpleName)
 	}
 
 	private fun getSolveString(part: Int, time: String, solution: String): String {
