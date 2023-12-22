@@ -66,13 +66,8 @@ class Almanac(input: List<String>) {
 		var currentRanges = getRangedSeeds()
 		var currentMap = getNextMap("seed")
 		while (currentMap != null) {
-
-			println()
-			println("${currentMap.source}: ${currentRanges.sortedBy { it.first }}")
 			currentRanges = currentMap.getCorrespondingRanges(currentRanges)
 			currentRanges.sortedBy { it.first }
-			println("${currentMap.target}: ${currentRanges.sortedBy { it.first }}")
-			println()
 			currentMap = getNextMap(currentMap.target)
 		}
 		return currentRanges

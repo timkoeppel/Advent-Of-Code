@@ -35,7 +35,7 @@ class CardPile(input: List<String>) {
 	}
 }
 
-class Card(input: String) {
+private class Card(input: String) {
 	val id: Int = Regex("[0-9]+(?=:)").find(input)!!.value.toInt()
 	private val winningNumbers: List<Int> =
 		Regex("(?<=:)([ 0-9]+)*(?= \\|)").find(input)!!.value.trim().split("\\s+".toRegex()).map { v -> v.toInt() }
