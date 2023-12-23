@@ -3,6 +3,7 @@ import 'package:dart_2015/days/day_02.dart';
 import 'package:dart_2015/days/day_03.dart';
 import 'package:dart_2015/days/day_04.dart';
 import 'package:dart_2015/days/day_05.dart';
+import 'package:dart_2015/days/day_06.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -63,7 +64,7 @@ void main() {
 
   /// DAY 06
   group('Day 06', () {
-    final day = Day05();
+    final day = Day06();
     test('Part1', () {
       expect(day.solvePart1(), 377891);
     });
