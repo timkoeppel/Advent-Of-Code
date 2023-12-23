@@ -20,14 +20,13 @@ class Oasis(input: List<String>) {
 	fun getExtrapolated(backwards: Boolean): List<Int> {
 		val extrapolated: MutableList<Int> = mutableListOf()
 		for (h in history) {
-			val differences = getDifferences(h)
+			val differences = getPivotalDifferences(h, backwards)
 			extrapolated.add(extrapolate(differences, backwards))
 		}
 		return extrapolated
 	}
 
-	// TODO optimize: only use relevant part of list
-	private fun getDifferences(numbers: List<Int>): List<List<Int>> {
+	private fun getPivotalDifferences(numbers: List<Int>, backwards: Boolean): List<Int> {
 		val differences: MutableList<List<Int>> = mutableListOf(numbers)
 		var current = numbers
 		while (!current.all { it == 0 }) {
@@ -38,16 +37,16 @@ class Oasis(input: List<String>) {
 			differences.add(currentDiff.toList())
 			current = currentDiff.toList()
 		}
-		return differences.toList()
+		return if(backwards) differences.map { it.first() } else differences.map { it.last() }
 	}
 
-	private fun extrapolate(differences: List<List<Int>>, backwards: Boolean): Int {
+	private fun extrapolate(differences: List<Int>, backwards: Boolean): Int {
 		var extrapolated = 0
-		for (i in differences.indices.reversed()) {
+		for (diff in differences.reversed()) {
 			if (backwards) {
-				extrapolated = differences[i][0] - extrapolated
+				extrapolated = diff - extrapolated
 			} else {
-				extrapolated += differences[i].last()
+				extrapolated += diff
 			}
 		}
 		return extrapolated
